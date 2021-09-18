@@ -358,8 +358,21 @@ Heroku はリリース段階ですべての環境変数を利用できるよう�
 
 次のコマンドで実行可能な状態にする。
 
-``` console
+``` 
 chmod +x ./migrate.sh
+```
+
+このコマンドを Dockerfile に追記しておく。
+
+``` dockerfile
+# Go API をビルドする
+FROM golang:latest AS builder
+ADD . /app
+WORKDIR /app/server
+RUN go mod download
+RUN go get -u github.com/pressly/goose/cmd/goose
+RUN chmod +x ./migrate.sh
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-w" -a -o /main .
 ```
 
 このファイルを /server ディレクトリに追加することで、
@@ -409,6 +422,8 @@ heroku logs --tail
 
 > ヒント: 
 > $ heroku apps:info を使って、プロダクションの URL などを確認してください
+
+![](./screencapture/03.release-phase.png)
 
 ## まとめ
 
