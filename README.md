@@ -368,6 +368,45 @@ heroku login
 まだ作成していない場合は、プロジェクトのルートに git リポジトリを作成したいと思います。
 git の混乱を避けるため、client/.git ディレクトリが削除されていることを確認してください。
 
+GitHub には事前にリモートリポジトリを作成しておきます。
+
+``` console
+git init
+git add .
+git commit -m 'First commit'
+git branch -M main
+git remote add origin ＜リモートリポジトリの URL＞
+git push -u origin main
+```
+
+これらのコマンドを実行すると、私たちが行ったすべての作業を含む
+単一のコミットを持つ初期リポジトリが作成されます。
+
+それでは、新しい Heroku アプリケーションを作ってみましょう :)
+
+``` console 
+heroku create
+Creating app... done, ⬢ blooming-hamlet-53782
+https://blooming-hamlet-53782.herokuapp.com/ | https://git.heroku.com/blooming-hamlet-53782.git
+```
+
+まず、新しいアプリケーションを作成しました。
+提案された URL と git リモートがわかります (cli ツールが .git/config に Heroku リモートを
+追加しました)。
+
+``` console
+heroku stack:set container
+Setting stack to container... done
+```
+
+次に、このスタックにコンテナをデプロイするつもりであることを Heroku に伝える必要があります。
+これが完了したら、デプロイを開始します。
+
+
+
+
+
+
 
 
 
