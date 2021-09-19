@@ -425,6 +425,29 @@ heroku logs --tail
 
 ![](./screencapture/03.release-phase.png)
 
+### A5M2 への接続方法
+
+アプリに追加した add-on である Heroku Postgres:Hobby Dev の接続情報は、
+Heroku サイトのダッシュボードから確認できる。
+
+接続情報を見るには、ダッシュボードの Resources の Add-ons 一覧から対象のアドオンを選択。
+別タブが開き、Settings を開き Database Credentials の「View Credentials...」ボタンをクリックすると
+接続情報を見ることができる。
+
+![](./screencapture/04.heroku-db-credentials.png)
+
+A5M2 の接続情報に必要なのは、「Host」「Database」「User」「Port」「Password」の項目。
+
+![](./screencapture/05.a5m2-connect-settings.png)
+
+これを A5m2 に設定し、「SSLモード」は「優先（SSL接続を優先）」にする。
+
+![](./screencapture/06.a5m2-ssl-settings.png)
+
+これで Heroku Postgres:Hobby Dev のテーブルのデータを見ることができる。
+
+![](./screencapture/07.a5m2-show-table.png)
+
 ## まとめ
 
 おめでとう。
