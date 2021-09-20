@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/contrib/static"
@@ -30,9 +31,12 @@ func pingFunc(db *sql.DB) gin.HandlerFunc {
 		var lastDate pq.NullTime
 		r.Scan(&lastDate)
 
-		message := "first time!"
+		message := ""
 		if lastDate.Valid {
-			message = fmt.Sprintf("%v ago", time.Now().Sub(lastDate.Time).String())
+			message = fmt.Sprintf("%v 前", time.Now().Sub(lastDate.Time).String())
+			message = strings.Replace(message, "h", "時間", -1)
+			message = strings.Replace(message, "m", "分", -1)
+			message = strings.Replace(message, "s", "秒", -1)
 		}
 
 		c.JSON(200, gin.H{

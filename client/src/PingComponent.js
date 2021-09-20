@@ -23,7 +23,20 @@ class PingComponent extends Component {
     }
 
     render() {
-        return <h1>Ping {this.state.pong}</h1>
+        return (
+            <>
+                {
+                    this.state.pong === null ||
+                        this.state.pong === this.state.pong ||
+                        hoge === '' ?
+                        <h1>今回が初回アクセス</h1> :
+                        <>
+                            <p>前回のアクセスから</p>
+                            <h1>{this.state.pong}</h1>
+                        </>
+                }
+            </>
+        )
     }
 }
 
