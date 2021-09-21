@@ -10,4 +10,4 @@
 この記事は、次の 2 部構成です。
 
 - [Docker を使って Go + React を Heroku にデプロイする：その１](./README.PART.01.md)
-- [# Docker を使って Go + React を Heroku にデプロイする：その２（データベース編）](./README.PART.02.md)
+- [Docker を使って Go + React を Heroku にデプロイする：その２（データベース編）](./README.PART.02.md)

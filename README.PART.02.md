@@ -264,7 +264,7 @@ DATABASE_URL=postgres://postgres:mysecretpassword@localhost:5432/gotutorial?sslm
 yarn start
 ```
 
-2回目のリクエストでは「first time!」を、2回目のリクエストではデータを表示する。
+1回目のリクエストでは「今回が初回アクセス」を、2回目のリクエストではデータを表示する。
 
 ![](./screencapture/02.run-it.png)
 

@@ -33,7 +33,7 @@ func pingFunc(db *sql.DB) gin.HandlerFunc {
 
 		message := ""
 		if lastDate.Valid {
-			message = fmt.Sprintf("%v 前", time.Now().Sub(lastDate.Time).String())
+			message = fmt.Sprintf("%v経過", time.Now().Sub(lastDate.Time).String())
 			message = strings.Replace(message, "h", "時間", -1)
 			message = strings.Replace(message, "m", "分", -1)
 			message = strings.Replace(message, "s", "秒", -1)

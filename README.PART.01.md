@@ -158,7 +158,20 @@ class PingComponent extends Component {
     }
 
     render() {
-        return <h1>Ping {this.state.pong}</h1>
+        return (
+            <>
+                {console.log(this.state)}
+                {
+                    this.state.pong === '' ?
+                        <h1>今回が初回アクセス</h1> :
+                        <>
+                            <div>前回のアクセスから
+                                <div style={{ fontWeight: "bold", fontSize: "2em" }}>{this.state.pong}</div>
+                            </div>
+                        </>
+                }
+            </>
+        )
     }
 }
 

@@ -25,14 +25,14 @@ class PingComponent extends Component {
     render() {
         return (
             <>
+                {console.log(this.state)}
                 {
-                    this.state.pong === null ||
-                        this.state.pong === this.state.pong ||
-                        hoge === '' ?
+                    this.state.pong === '' ?
                         <h1>今回が初回アクセス</h1> :
                         <>
-                            <p>前回のアクセスから</p>
-                            <h1>{this.state.pong}</h1>
+                            <div>前回のアクセスから
+                                <div style={{ fontWeight: "bold", fontSize: "2em" }}>{this.state.pong}</div>
+                            </div>
                         </>
                 }
             </>
